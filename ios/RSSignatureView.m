@@ -80,7 +80,7 @@
 
 			if (_showTitleLabel) {
 				titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 24)];
-				[titleLabel setCenter:CGPointMake(self.bounds.size.width/2, self.bounds.size.height - 120)];
+				[titleLabel setCenter:CGPointMake(self.bounds.size.width/2, self.bounds.size.height - 160)];
 
 				[titleLabel setText:@"________________________________________________________________________________________________"];
 				[titleLabel setLineBreakMode:NSLineBreakByClipping];
@@ -121,7 +121,7 @@
 		else {
 
 			if (_showTitleLabel) {
-				titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.height - 80, 24)];
+				titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.height - 120, 24)];
 				[titleLabel setCenter:CGPointMake(40, self.bounds.size.height/2)];
 				[titleLabel setTransform:CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(90))];
 				[titleLabel setText:@"________________________________________________________________________________________________"];
