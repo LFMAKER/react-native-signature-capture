@@ -21,6 +21,7 @@
 	BOOL _showTitleLabel;
 	UIColor *_backgroundColor;
 	UIColor *_strokeColor;
+	NSString *_viewMode;
 }
 
 @synthesize sign;
@@ -74,7 +75,7 @@
 
 		[self addSubview:sign];
 
-		if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
+		if ( [_viewMode  isEqual: @"portrait"] || UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
 
 			if (_showTitleLabel) {
 				titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 24)];
@@ -195,6 +196,10 @@
 
 -(void) onSaveButtonPressed {
 	[self saveImage];
+}
+
+- (void)setViewMode:(NSString *)viewMode {
+    _viewMode = viewMode;
 }
 
 -(void) saveImage {
