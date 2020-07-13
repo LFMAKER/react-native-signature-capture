@@ -34,6 +34,7 @@
 	_showTitleLabel = YES;
 	_backgroundColor = UIColor.whiteColor;
 	_strokeColor = UIColor.blackColor;
+	_viewMode = @"portrait";
 	if ((self = [super init])) {
 		_border = [CAShapeLayer layer];
 		_border.strokeColor = [UIColor blackColor].CGColor;
