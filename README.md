@@ -8,7 +8,7 @@ User would sign on the app and when you press the save button it returns the bas
 
 
 This library is a modification of https://github.com/RepairShopr/react-native-signature-capture
-Unfortunately I had the need to modify things that would not be accepted in a pull-request, so if you want to use the core library use the one from the link mentioned.
+-Unfortunately I had the need to modify things that would not be accepted in a pull-request, so if you want to use the core library use the one from the link mentioned.
 
 
 ### iOS
