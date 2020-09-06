@@ -1,4 +1,13 @@
-# react-native-sketch-signature
+<h1 align="center">Welcome to eact-native-sketch-signature 👋</h1>
+<p align="center">
+  <img src="https://img.shields.io/npm/v/react-native-sketch-signature.svg?orange=blue" />
+  <a href="https://www.npmjs.com/package/react-native-sketch-signature">
+    <img alt="downloads" src="https://img.shields.io/npm/dm/react-native-sketch-signature.svg?color=blue" target="_blank" />
+  </a>
+  <a href="https://github.com/LFMAKER/react-native-sketch-signature/blob/master/LICENSE">
+    <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
+  </a>
+</p>
 
 ## About this
 
@@ -10,83 +19,22 @@ User would sign on the app and when you press the save button it returns the bas
 This library is a modification of https://github.com/RepairShopr/react-native-signature-capture
 -Unfortunately I had the need to modify things that would not be accepted in a pull-request, so if you want to use the core library use the one from the link mentioned.
 
+### Preview
+| IOS  |  Android |
+| ------------ | ------------ |
+| <img src="http://i.giphy.com/3oEduIyWb48Ws3bSuc.gif" />  |<img src="http://i.giphy.com/xT0GUKJFFkdDv25FNC.gif" />   |  |
 
-### iOS
+### Install
 
-<img src="http://i.giphy.com/3oEduIyWb48Ws3bSuc.gif" />
-
-### Android
-
-<img src="http://i.giphy.com/xT0GUKJFFkdDv25FNC.gif" />
-
-## Install
-
-First you need to install react-native-sketch-signature:
-
+NPM:
 ```sh
 npm install react-native-sketch-signature --save
 ```
-
-Second you need to link react-native-sketch-signature:
-
+YARN:
 ```sh
-react-native link react-native-sketch-signature
+yarn add react-native-sketch-signature 
 ```
 
-Use above `react-native link` command to automatically complete the installation, or link manually like so:
-
-### iOS
-
-1. In the XCode's "Project navigator", right click on your project's Libraries folder ➜ Add Files to <...>
-2. Go to node_modules ➜ react-native-sketch-signature ➜ ios ➜ select RSSignatureCapture.xcodeproj
-3. Add libRSSignatureCapture.a to Build Phases -> Link Binary With Libraries
-4. Compile and have fun
-
-### Android
-
-Add these lines in your file: android/settings.gradle
-
-```
-...
-
-include ':reactnativesignaturecapture',':app'
-project(':reactnativesignaturecapture').projectDir = new File(settingsDir, '../node_modules/react-native-sketch-signature/android')
-```
-
-Add line in your file: android/app/build.gradle
-
-```
-...
-
-dependencies {
-    ...
-    compile project(':reactnativesignaturecapture') // <-- add this line
-}
-```
-
-Add import and line in your file: android/app/src/main/java/<...>/MainApplication.java
-
-```java
-...
-
-import com.rssignaturecapture.RSSignatureCapturePackage; // <-- add this import
-
-public class MainApplication extends Application implements ReactApplication {
-
-    private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-
-        @Override
-        protected List<ReactPackage> getPackages() {
-            return Arrays.<ReactPackage>asList(
-                new MainReactPackage(),
-                new RSSignatureCapturePackage() // <-- add this line
-            );
-        }
-  }
-
-...
-}
-```
 
 ## Usage
 
@@ -110,43 +58,39 @@ class CustomComponent extends Component {
 }
 ```
 
-### Properties
+### Properties :fa-cog:
 
-- **saveImageFileInExtStorage** : Make this props true, if you want to save the image file in external storage. Default is false. Warning: Image file will be visible in gallery or any other image browsing app
+| Name  |  Description |
+| ------------ | ------------ |
+|saveImageFileInExtStorage   | Make this props true, if you want to save the image file in external storage. Default is false. Warning: Image file will be visible in gallery or any other image browsing app  |
+| showBorder  | If this props is made to false, it will hide the dashed border (the border is shown on iOS only).  |
+| showNativeButtons  |  If this props is made to true, it will display the native buttons "Save" and "Reset". |
+| showTitleLabel  | If this props is made to true, it will display the "x\_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_" placeholder indicating where to sign.  |
+| viewMode  |"portrait" or "landscape" change the screen orientation based on boolean value   |
+|maxSize   | sets the max size of the image maintains aspect ratio, default is 500  |
+| backgroundColor  | Sets the background color of the component. Defaults to white. May be 'transparent'.  |
+| strokeColor  | Sets the color of the signature. Defaults to black. |
 
-- **showBorder** : If this props is made to false, it will hide the dashed border (the border is shown on iOS only).
 
-- **showNativeButtons** : If this props is made to true, it will display the native buttons "Save" and "Reset".
+### Methods :fa-hand-o-right:
 
-- **showTitleLabel** : If this props is made to true, it will display the "x\_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_" placeholder indicating where to sign.
+| Name  |  Description |
+| ------------ | ------------ |
+|saveImage   | when called it will save the image and returns the base 64 encoded string on onSaveEvent() callback  |
+| resetImage()  | when called it will clear the image on the canvas  |
 
-- **viewMode** : "portrait" or "landscape" change the screen orientation based on boolean value
 
-- **maxSize** : sets the max size of the image maintains aspect ratio, default is 500
+### Callback Props  :fa-repeat:
 
-- **backgroundColor**: Sets the background color of the component. Defaults to white. May be 'transparent'.
+| Name  |  Description |
+| ------------ | ------------ |
+|onSaveEvent   | Triggered when saveImage() is called, which return Base64 Encoded String and image file path. |
+| onDragEvent  | Triggered when user marks his signature on the canvas. This will not be called when the user does not perform any action on canvas.  |
 
-- **strokeColor**: Sets the color of the signature. Defaults to black.
 
-### Methods
-
-- **saveImage()** : when called it will save the image and returns the base 64 encoded string on onSaveEvent() callback
-
-- **resetImage()** : when called it will clear the image on the canvas
-
-### Callback Props
-
-- **onSaveEvent** : Triggered when saveImage() is called, which return Base64 Encoded String and image file path.
-
-- **onDragEvent** : Triggered when user marks his signature on the canvas. This will not be called when the user does not perform any action on canvas.
-
-### Example
+### Old Example - Soon an example with functional component
 
 ```javascript
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
 
 var React = require("react");
 var ReactNative = require("react-native");
@@ -240,10 +184,8 @@ AppRegistry.registerComponent("RNSignatureExample", () => RNSignatureExample);
 
 ---
 
-Please checkout the example folder (iOS/Android):
-https://github.com/RepairShopr/react-native-sketch-signature/tree/master/Example
-
 Library used:
+https://github.com/RepairShopr/react-native-signature-capture
 
 https://github.com/jharwig/PPSSignatureView
 
