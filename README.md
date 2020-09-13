@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to eact-native-sketch-signature 👋</h1>
+<h1 align="center">Welcome to react-native-sketch-signature 👋</h1>
 <p align="center">
   <img src="https://img.shields.io/npm/v/react-native-sketch-signature.svg?orange=blue" />
   <a href="https://www.npmjs.com/package/react-native-sketch-signature">
